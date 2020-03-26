@@ -5,21 +5,20 @@ import logo from './../../images/logo.png';
 
 
 const NavbarBlue = styled(Navbar)`
-  background-color: #05d3f4;`
+  background-color: #5a0ce9;`
 ;
 const Logo = styled.img`
-  margin-top: 2px;`
-;
+  margin-top: 2px;`;
+
 const IconUser = styled(Icon)`
-  font-size: 40px !important;`
-;
+  font-size: 40px !important;`;
 
 const Header = () => (
   <Row>
     <NavbarBlue brand={
       <Logo src={logo}
         alt="OneBitTwitter"
-        className="responsive-img col s6 l3 offset-s6 offset-l2 center"
+        className="responsive-img col s8 l3 offset-s6 offset-l2 center"
       />
       }
       alignLinks="right"

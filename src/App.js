@@ -1,10 +1,10 @@
-
 import React, { Component } from 'react';
-import Header from './components/Header'
+import ProfilePageContainer from './containers/ProfilePageContainer';
+
 class App extends Component {
   render() {
     return (
-      <Header />
+      <ProfilePageContainer />
     );
   }
 }
