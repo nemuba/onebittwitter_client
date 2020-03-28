@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import TrendingTopics from '../../components/TrendingTopics'
+import TrendingTopics from '../../components/TrendingTopics';
+import axios from 'axios';
 
 class TrendingTopicsContainer extends Component {
   constructor(props) {
@@ -11,12 +12,14 @@ class TrendingTopicsContainer extends Component {
   }
 
 componentDidMount() {
-  this.setState({
-    hashtags: [
-      ['#OneBitCode', '10k'],
-      ['#RubyOnRails', '10k']
-    ]
+  axios.get(`${ process.env.REACT_APP_API}/trending`)
+  .then(response => {
+    this.setState(()=>{
+      console.log(response.data.hashtags);
+      return { hashtags: response.data.hashtags}
+    })
   })
+  .catch(error => console.log(`Erro: ${error}`));
 }
 
 render() {
