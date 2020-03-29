@@ -13,7 +13,7 @@ const Logo = styled.img`
 const IconUser = styled(Icon)`
   font-size: 40px !important;`;
 
-const Header = () => (
+const Header = (props) => (
   <Row>
     <NavbarBlue brand={
       <Logo src={logo}
@@ -24,10 +24,10 @@ const Header = () => (
       alignLinks="right"
       className="navbar"
       >
-      <NavItem href='/logout'>
+      <NavItem onClick={() => props.logOut()} >
         Logout
       </NavItem>
-      <NavItem href='/user/x/edit'>
+      <NavItem href={`/user/${props.id}/edit`}>
           <IconUser class="icon_user">account_circle</IconUser>
       </NavItem>
     </NavbarBlue>
