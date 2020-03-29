@@ -10,12 +10,16 @@ export const history = createBrowserHistory();
 const history_middleware = routerMiddleware(history);
 // End routes imports
 
-
-
 export default function configureStore(preloadedState) {
+
+  // Config extension REDUX DevTools
+  const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
   const store = createStore(
-    rootReducers(history), preloadedState, compose( applyMiddleware(history_middleware, thunk) )
-  )
+    rootReducers(history),
+    preloadedState,
+    composeEnhancer(applyMiddleware(history_middleware, thunk))
+  );
 
   return store;
 }
