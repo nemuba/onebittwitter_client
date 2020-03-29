@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import TrendingTopics from './../../components/TrendingTopics';
 import {connect} from 'react-redux';
+import { getHashtags } from "./actions";
+import { bindActionCreators } from 'redux'
 class TrendingTopicsContainer extends Component {
+
+  componentDidMount(){
+    this.props.getHashtags();
+  }
 
 render() {
     return (
@@ -12,8 +18,15 @@ render() {
   }
 }
 
+// mapeando os dados da store para os props
 function mapStateToProps(state){
   return { hashtags: state.trendings.hashtags }
 }
 
-export default connect(mapStateToProps)(TrendingTopicsContainer);
+// conenctando as actions do component
+function mapDispatchToProps (dispatch) {
+  return bindActionCreators({getHashtags}, dispatch);
+}
+
+// conectando a store e passando as funções para o componente
+export default connect(mapStateToProps, mapDispatchToProps)(TrendingTopicsContainer);

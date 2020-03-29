@@ -5,14 +5,9 @@ import * as serviceWorker from './serviceWorker';
 import './index.css';
 import 'materialize-css/dist/js/materialize.js';
 import 'materialize-css/dist/css/materialize.min.css';
-import {createStore, combineReducers} from 'redux';
 import {Provider} from 'react-redux';
+import Store from './configureStore';
 
-const Reducers = combineReducers({
-  trendings: () => ({hashtags: [["#RubyOnRails","99k"],["#ReactJs","100k"]]})
-});
-
-const Store = createStore(Reducers);
 
 ReactDOM.render(
   <Provider store={Store}>
