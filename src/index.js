@@ -9,7 +9,7 @@ import {Provider} from 'react-redux';
 //* Configure Store and history
 import configureStore, { history } from './configureStore';
 //* Connect router with redux
-import { ConnectedRouter } from 'connected-react-router'
+import { ConnectedRouter } from 'connected-react-router';
 
 //* Store
 const Store = configureStore();

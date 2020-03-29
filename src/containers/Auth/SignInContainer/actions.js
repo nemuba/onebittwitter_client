@@ -14,14 +14,11 @@ export function logIn({email,password}) {
     request
       .then(resp => {
         localStorage.setItem('jwt', resp.data.jwt);
+        window.M.toast({ html: 'Logado com sucesso !', outDuration: 4000, classes: 'blue rounded' });
         dispatch(push('/timeline'))
       })
       .catch(() => {
-        window.M.toast({
-          html: 'Email or Password incorrect',
-          outDuration: 4000,
-          classes: 'red rounded'
-        })
+        window.M.toast({ html: 'Email ou Senha incorreta !', outDuration: 4000, classes: 'red rounded darken-2' });
       });
   }
 }

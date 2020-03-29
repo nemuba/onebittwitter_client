@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Row, Col, Card, Icon } from 'react-materialize';
+import { Row, Col, CardPanel, Button } from 'react-materialize';
 import { LocalForm, Control } from 'react-redux-form';
 
 
@@ -9,13 +9,8 @@ class SignIn extends Component {
   return (
     <Row>
     <Col s={12} offset="2">
-      <Card
-        closeIcon={<Icon>close</Icon>}
-        revealIcon={<Icon>more_vert</Icon>}
-        textClassName="white-black"
-        title="Entrar"
-      >
-
+    <CardPanel>
+      <h6 className="header">Entrar</h6>
       <div className="form">
         <div>
         <LocalForm onSubmit={(values) => this.props.handleSubmit(values) }>
@@ -31,12 +26,12 @@ class SignIn extends Component {
             placeholder="Password"
           />
           <div className="text-right">
-            <button type="submit" className="blue btn grey darken-2">Login</button>
-            </div>
+            <Button node="button" waves="light" className="blue btn darken-2">Login</Button>
+          </div>
           </LocalForm>
           </div>
         </div>
-        </Card>
+        </CardPanel>
       </Col>
       </Row>
     );
