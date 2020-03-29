@@ -6,14 +6,19 @@ import './index.css';
 import 'materialize-css/dist/js/materialize.js';
 import 'materialize-css/dist/css/materialize.min.css';
 import {Provider} from 'react-redux';
-import Store from './configureStore';
+//* Configure Store and history
+import configureStore, { history } from './configureStore';
+//* Connect router with redux
+import { ConnectedRouter } from 'connected-react-router'
 
+//* Store
+const Store = configureStore();
 
 ReactDOM.render(
   <Provider store={Store}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+    <ConnectedRouter history={history}>
+        <App/>
+    </ConnectedRouter>
   </Provider>,
   document.getElementById('root')
 );
