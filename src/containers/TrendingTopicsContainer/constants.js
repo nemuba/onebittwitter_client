@@ -1,0 +1,1 @@
+export const UPDATE_TRENDINGS = 'trending_topic/UPDATE_TRENDINGS';
