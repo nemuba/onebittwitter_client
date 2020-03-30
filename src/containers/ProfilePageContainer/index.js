@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import ProfilePage from './../../components/ProfilePage';
-import { getUserInfo } from './actions';
+import { getUserInfo, getTweetList } from './actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 class ProfilePageContainer extends Component {
 
   componentDidMount() {
-    this.props.getUserInfo(this.props.id)
+    this.props.getUserInfo(this.props.id);
+    this.props.getTweetList(this.props.id);
   }
 
   render() {
@@ -25,7 +26,7 @@ function mapStateToProps(state, ownProps) {
 };
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ getUserInfo }, dispatch)
+  return bindActionCreators({ getUserInfo, getTweetList }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProfilePageContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(ProfilePageContainer);

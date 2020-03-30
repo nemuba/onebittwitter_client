@@ -16,10 +16,12 @@ const IconUser = styled(Icon)`
 const Header = (props) => (
   <Row>
     <NavbarBlue brand={
-      <Logo src={logo}
-        alt="OneBitTwitter"
-        className="responsive-img col s8 l3 offset-s6 offset-l2 center"
-      />
+      <a href="/timeline" className="col s12 m10 l10 offset-s2 offset-m3" style={{marginTop: '3px'}}>
+        <Logo src={logo}
+          alt="OneBitTwitter"
+          className="responsive-img col s8 l3 offset-s6 offset-l2 center"
+        />
+      </a>
       }
       alignLinks="right"
       className="navbar"

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import TrendingTopics from './../../components/TrendingTopics';
-import {connect} from 'react-redux';
 import { getHashtags } from "./actions";
-import { bindActionCreators } from 'redux'
+import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux';
 class TrendingTopicsContainer extends Component {
 
   componentDidMount(){

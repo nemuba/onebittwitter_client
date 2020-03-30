@@ -1,50 +1,42 @@
 import React, { Component } from 'react';
-import TweetUnit from './../../components/TweetUnit'
-import photo from './../../images/fake_avatar.png';
+import TweetUnit from '../../components/TweetUnit';
+import { deleteTweet } from './actions';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
 
 class TweetListContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      tweets: []
-    };
+
+  constructor(){
+    super();
+    this.deleteTweet = this.deleteTweet.bind(this);
   }
 
-componentDidMount() {
-  this.setState({
-    tweets: [
-    {
-      id: "x",
-      body: "Trending Topics Trending Topics Trending Topics Trending Topics ",
-      time: "17h",
-      user: {
-        id: "x",
-        name: "Alef Ojeda",
-        photo: photo
-      }
-    }, {
-      id: "x",
-      body: "Trending Topics Trending Topics Trending Topics Trending Topics",
-      time: "17h",
-      user: {
-        id: "x",
-        name: "Alef Ojeda",
-        photo: photo
-      }
-    }
-  ]
-})
-}
+  deleteTweet(id){
+    this.props.deleteTweet(id);
+  }
 
   render() {
+    const tweet_list = this.props.tweets.length ? (this.props.tweets) : []
     return (
       <div>
-      {this.state.tweets.map((tweet, i) =>
-          <TweetUnit {...tweet} key={i} />
-      )}
+        {tweet_list.map((tweet, i) =>
+          <TweetUnit {...tweet} key={i} deleteTweet={this.deleteTweet} current_user={this.props.current_user} />
+        )}
       </div>
     );
   }
 }
 
-export default TweetListContainer;
+function mapStateToProps(state) {
+  return {
+    tweets: state.tweets,
+    current_user: state.current_user
+    }
+};
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({deleteTweet}, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TweetListContainer);
