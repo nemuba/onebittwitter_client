@@ -10,7 +10,7 @@ class UserFollow extends Component {
   render(){
     return (
       <InvisibleButton onClick={this.follow}>
-        <Icon small className="grey-text text-darken-2">star</Icon>
+        <Icon small className="yellow-text text-darken-2 hoverable">star</Icon>
       </InvisibleButton>
     );
   }
