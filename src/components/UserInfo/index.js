@@ -11,7 +11,7 @@ import fake_avatar from './../../images/fake_avatar.png';
 const Avatar = styled.img`
   margin-top: 8px;
   width: 100%`
-  ;
+;
 
 const UserInfo = (props) => (
   <CardPanel className="hoverable">
