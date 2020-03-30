@@ -21,7 +21,7 @@ const TweetUnit = (props) => (
       <Col s={12} m={10}>
         <RowNoBottomMargin>
           <Col s={10} m={10}>
-            <b>{props.user.name}</b>
+            <b>{props.user.name} - {props.created_at}</b>
           </Col>
           <Col s={2} m={2} className="right-align">
             {props.current_user.id === props.user.id &&
