@@ -28,7 +28,13 @@ const Header = (props) => (
         Logout
       </NavItem>
       <NavItem href={`/user/${props.id}/edit`}>
+      { ( props.photo != null ?
+          <img src={`${props.photo.profile.url}`}
+            style={{'marginTop': '10px'}}
+            className="circle responsive-img col s6 l7 offset-l1" alt="Profile User"
+          /> :
           <IconUser class="icon_user">account_circle</IconUser>
+        )}
       </NavItem>
     </NavbarBlue>
   </Row>

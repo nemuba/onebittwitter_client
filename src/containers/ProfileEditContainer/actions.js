@@ -1,4 +1,5 @@
 import API from '../../api.js';
+import {UPDATE_IMAGE_PREVIEW} from './constants';
 
 export function updateUserInfo({ id, name, email, description, photo }) {
   const headers = { 'Authorization': 'Bearer ' + localStorage.getItem('jwt') };
@@ -32,4 +33,11 @@ export function updateUserPassword({ id, password, password_confirmation }) {
         window.M.toast({ html: 'Não foi possivel atualizar a senha!', outDuration: 3000, classes: 'red rounded' });
       });
   };
+}
+
+export function updateImagePreview(image_preview) {
+  return {
+    type: UPDATE_IMAGE_PREVIEW,
+    payload: image_preview
+  }
 }

@@ -6,7 +6,7 @@ class SignUp extends Component {
 
   render() {
     return (
-      <Row>
+      <Row style={{marginBottom: '120px'}}>
         <Col s={12} offset="2">
           <CardPanel>
             <h6 className="header">Criar conta</h6>

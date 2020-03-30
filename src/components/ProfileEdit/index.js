@@ -1,15 +1,15 @@
 import React from "react";
 import { Row, Col, CardPanel, Button } from 'react-materialize';
 import MainLayout from '../MainLayout'
-// import UserInfoContainer from '../../containers/UserInfoContainer';
-// import TrendingTopicsContainer from '../../containers/TrendingTopicsContainer';
+// import UserInfoContainer from '../../containers/UserInfoContainer'
+// import TrendingTopicsContainer from '../../containers/TrendingTopicsContainer'
 import { LocalForm, Control } from 'react-redux-form';
 import styled from 'styled-components';
 
 const ProfileImage = styled.img`
-   margin-top: 10px;
-   margin-bottom: 10px;
- `;
+  margin-top: 10px;
+  margin-bottom: 10px;
+`;
 
 const ProfileEdit = (props) => (
   <MainLayout>
@@ -23,32 +23,44 @@ const ProfileEdit = (props) => (
           </Row>
 
           <Row>
-            <Col m={12} s={12} offset="">
+            <Row className="center">
+              <Col m={4} className="offset-m4">
+                <ProfileImage src={props.image_preview} className="responsive-img circle" />
+              </Col>
+            </Row>
+            <Col m={12} s={12}>
               <div className="form">
                 <div>
-                  <LocalForm
-                    onSubmit={(values) => props.updateProfile(values)}
+                  <LocalForm onSubmit={(values) => props.updateProfile(values)}
                     initialState={{
                       name: props.name,
                       email: props.email,
                       description: props.description,
                       id: props.id,
+                      image_preview: props.image_preview
                     }}
                   >
+
+                    <Control.file model=".photo"
+                      onChange={(value) => props.encodeFile(value)}
+                      style={{ 'marginBottom': '20px' }}
+                    />
                     <Control.text model=".name"
                       name="name"
                       placeholder="Nome"
                     />
                     <Control.text model=".email"
+                      type="email"
                       name="email"
                       placeholder="Email"
                     />
                     <Control.text model=".description"
+                      type="text"
                       name="description"
                       placeholder="Descrição..."
                     />
                     <div className="right">
-                      <Button waves="light" node="button" className="blue btn darken-2">Atualizar</Button>
+                      <Button waves="light" node="button" className="btn blue">Atualizar</Button>
                     </div>
                   </LocalForm>
                 </div>
@@ -58,7 +70,7 @@ const ProfileEdit = (props) => (
 
           <Row>
             <Col m={8} s={8} offset="">
-              <b className="grey-text text-darken-1">Mudar Senha</b>
+              <b className="grey-text text-darken-1">Mudar senha</b>
             </Col>
           </Row>
 
@@ -66,8 +78,7 @@ const ProfileEdit = (props) => (
             <Col m={12} s={12} offset="">
               <div className="form">
                 <div>
-                  <LocalForm
-                    onSubmit={(values) => props.updatePassword(values)}
+                  <LocalForm onSubmit={(values) => props.updatePassword(values)}
                     initialState={{
                       id: props.id,
                     }}
@@ -81,11 +92,11 @@ const ProfileEdit = (props) => (
                     <Control.text model=".password_confirmation"
                       type="password"
                       name="password_confirmation"
-                      placeholder="Senha(confirmação)"
+                      placeholder="Senha (confirmação)"
                       autoComplete="new-password"
                     />
                     <div className="right">
-                      <Button waves="light" node="button" className="blue btn darken-2">Atualizar Senha</Button>
+                      <Button waves="light" node="button" className="btn blue">Atualizar senha</Button>
                     </div>
                   </LocalForm>
                 </div>
